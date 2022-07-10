@@ -23,5 +23,5 @@ jobs:
         with:
           context: dockerfile/7.4
           push: true
-          tags: 7.4
+          tags: ${{ secrets.DOCKER_USERNAME }}/php-nginx-dev:7.4
           labels: ${{ steps.meta.outputs.labels }}
