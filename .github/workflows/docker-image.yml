@@ -7,8 +7,8 @@ on:
 jobs:
   build:
     strategy:
-    matrix:
-      version: [7.4, 8.0, 8.1]
+      matrix:
+        version: [7.4, 8.0, 8.1]
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +24,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:"${{ matrix.version }}
+          context: ${{ matrix.version }}
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/php-nginx-dev:${{ matrix.version }}
           labels: ${{ steps.meta.outputs.labels }}
