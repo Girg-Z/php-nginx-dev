@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -n "$1" ] && [ $1 = "php" ]; then
+        shift
+fi
+
+if [ $# -lt 1 ]; then
+        # TODO print usage
+        exit 1
+fi
+
+php -d xdebug.start_with_request=yes "$@"
